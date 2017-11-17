@@ -1,6 +1,6 @@
 import test from "tape-async";
-import $package_var from ".";
+import aiFilter from ".";
 
 test("exports a function", t => {
-  t.is(typeof $package_var, "function");
+  t.is(typeof aiFilter, "function");
 });

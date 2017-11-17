@@ -1,3 +1,3 @@
-const $package_var = require("$package_name");
+const aiFilter = require("ai-filter");
 
-console.log({ $package_var });
+console.log({ aiFilter });

@@ -1,21 +1,32 @@
 {
-  "name": "$package_name",
+  "name": "ai-filter",
   "version": "0.0.0",
-  "description": "$package_description",
-  "repository": "$package_author/$package_name",
-  "author": "$package_author_name <$package_author_email>",
+  "description": "Filter over async iterables.",
+  "repository": "parro-it/ai-filter",
+  "author": "Andrea Parodi <andrea@parro.it>",
   "license": "MIT",
-  "files": ["index.js", "example.js"],
+  "files": [
+    "index.js",
+    "example.js"
+  ],
   "scripts": {
-    "test":
-      "node --harmony_async_iteration -r @std/esm test.js | tap-prettify - && linterjs .",
+    "test": "node --harmony_async_iteration -r @std/esm test.js | tap-prettify - && linterjs .",
     "doc": "documentation readme index.js --section=API"
   },
-  "engines": { "node": ">9" },
+  "engines": {
+    "node": ">9"
+  },
   "keywords": [],
   "tonicExampleFilename": "example.js",
   "@std/esm": {
     "esm": "js",
     "cjs": true
+  },
+  "devDependencies": {
+    "@std/esm": "^0.16.0",
+    "documentation": "^5.3.3",
+    "linterjs": "^1.11.0",
+    "tap-colorize": "^1.2.0",
+    "tape-async": "^2.3.0"
   }
 }
