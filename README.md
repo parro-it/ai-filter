@@ -41,9 +41,10 @@ by the provided function.
 **Parameters**
 
 -   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** is a predicate, to test each element of the async iterable. Return true to keep the element, false otherwise, taking three arguments:
-    1 - element - The current element being processed in the async iterable.
-    2 - index - The index of the current element being processed in the async iterable.
-    3 - iterable - The async iterable filter was called upon.
+    .
+    element: The current element being processed in the async iterable.
+    index: The index of the current element being processed in the async iterable.
+    iterable: The async iterable filter was called upon.
 -   `data` **AsyncIterable** The source async iterable to filter.
 
 Returns **AsyncIterable** A new async iterable with the elements that pass the test.
