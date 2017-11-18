@@ -5,7 +5,8 @@
 
 > Filter over async iterables.
 
-background details relevant to understanding what this module does
+This method creates a new async iterable with all elements that pass the test
+implemented by the provided function.
 
 ## Async iterable fun
 
