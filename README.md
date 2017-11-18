@@ -34,18 +34,26 @@ for await (const chunk of result) {
 
 ### index
 
-The filter() method creates a new async iterable
-with all elements that pass the test implemented
-by the provided function.
+The filter() method creates a new async iterable with all elements that pass the
+test implemented by the provided function.
 
 **Parameters**
 
--   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** is a predicate, to test each element of the async iterable. Return true to keep the element, false otherwise, taking three arguments:    element: The current element being processed in the async iterable.
+* `predicate`
+  **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+  is a predicate, to test each element of the async iterable. Return true to
+  keep the element, false otherwise, taking three arguments: element: The
+  current element being processed in the async iterable.
+
+```
         index: The index of the current element being processed in the async iterable.
         iterable: The async iterable filter was called upon.
--   `data` **AsyncIterable** The source async iterable to filter.
+```
 
-Returns **AsyncIterable** A new async iterable with the elements that pass the test.
+* `data` **AsyncIterable** The source async iterable to filter.
+
+Returns **AsyncIterable** A new async iterable with the elements that pass the
+test.
 
 ## Install
 
@@ -57,8 +65,8 @@ npm install --save ai-filter
 
 ## See Also
 
--   [`noffle/common-readme`](https://github.com/noffle/common-readme)
--   [`parro-it/ai-fun`](https://github.com/parro-it/ai-fun)
+* [`noffle/common-readme`](https://github.com/noffle/common-readme)
+* [`parro-it/ai-fun`](https://github.com/parro-it/ai-fun)
 
 ## License
 
