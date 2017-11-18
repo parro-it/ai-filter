@@ -1,9 +1,4 @@
-function isAsyncIterable(val) {
-  const isIterable = typeof val[Symbol.iterator] === "function";
-  const isAsync = typeof val[Symbol.asyncIterator] === "function";
-  // ? console.log({ val, isIterable, isAsync, s: Symbol.asyncIterator });
-  return isAsync || isIterable;
-}
+import isAsyncIterable from "is-async-iterable";
 
 export default async function* filter(predicate, data) {
   if (typeof predicate !== "function") {
