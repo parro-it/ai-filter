@@ -8,21 +8,24 @@
 background details relevant to understanding what this module does
 
 ## Async iterable fun
-__This module is part of [Async iterable fun](https://github.com/parro-it/ai-fun), a complete toolset of modules to work with async iterables.__
+
+**This module is part of
+[Async iterable fun](https://github.com/parro-it/ai-fun), a complete toolset of
+modules to work with async iterables.**
 
 ## Usage
 
-description of the example
+This example read a text file, filtering only chunks cotnaining a new line:
 
 ```js
-const aiFilter = require('ai-filter');
+import filter from 'ai-filter';
+import { createReadStream } from "fs";
 
-console.log({aiFilter});
-```
-
-This will output
-
-```
+const stream = createReadStream(`file.txt`, "utf8");
+const result = filter(chunk => chunk.contains('\n'), fromStream(stream))
+for await (const chunk of result) {
+  console.log(chunk);
+}
 ```
 
 ## API
@@ -37,11 +40,9 @@ npm install --save ai-filter
 
 ## See Also
 
-- [`noffle/common-readme`](https://github.com/noffle/common-readme)
-- [`parro-it/ai-fun`](https://github.com/parro-it/ai-fun)
-
+* [`noffle/common-readme`](https://github.com/noffle/common-readme)
+* [`parro-it/ai-fun`](https://github.com/parro-it/ai-fun)
 
 ## License
 
 MIT
-
