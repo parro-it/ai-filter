@@ -15,7 +15,7 @@ test("exports a function", async t => {
   t.is(typeof filter, "function");
 });
 
-test("transform a stream into an async iterable", async t => {
+test("return lines that respect the predicate", async t => {
   const lines = readLines();
   const filtered = filter(line => line.match(/id/), lines);
   t.deepEqual(await concat.obj(filtered), ["pids", "*.pid"]);
