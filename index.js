@@ -48,5 +48,5 @@ export default function filter(data, predicate) {
 
 filter.with = predicate => {
   checkPredicateArgument(predicate);
-  return iterable => filter(predicate, iterable);
+  return iterable => filter(iterable, predicate);
 };
