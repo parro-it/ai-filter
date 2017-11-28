@@ -1,11 +1,14 @@
 {
   "name": "ai-filter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Filter over async iterables.",
   "repository": "parro-it/ai-filter",
   "author": "Andrea Parodi <andrea@parro.it>",
   "license": "MIT",
-  "files": ["index.js", "example.js"],
+  "files": [
+    "index.js",
+    "example.js"
+  ],
   "scripts": {
     "test": "node -r @std/esm test.js | tap-colorize - && linterjs .",
     "doc": "documentation readme index.js --section=API"
