@@ -1,4 +1,5 @@
 import isAsyncIterable from "is-async-iterable";
+import AsyncIterable from "asynciterable";
 
 /**
  * The filter() method creates a new async iterable
@@ -14,23 +15,33 @@ import isAsyncIterable from "is-async-iterable";
  * @param {AsyncIterable} data The source async iterable to filter.
  * @return {AsyncIterable} A new async iterable with the elements that pass the test.
  */
-export default async function* filter(predicate, data) {
-  if (typeof predicate !== "function") {
-    throw new TypeError("predicate argument must be a function.");
-  }
-
-  if (typeof data === "undefined") {
-    return filter.bind(null, predicate);
-  }
-
-  if (!isAsyncIterable(data)) {
-    throw new TypeError("data argument must be an iterable or async-iterable.");
-  }
-
-  let index = 0;
-  for await (const item of data) {
-    if (await predicate(item, index++, data)) {
-      yield item;
+export default function filter(predicate, data) {
+  return new AsyncIterable(async (write, end) => {
+    if (typeof predicate !== "function") {
+      throw new TypeError("predicate argument must be a function.");
     }
-  }
+
+    if (typeof data === "undefined") {
+      return filter.bind(null, predicate);
+    }
+
+    if (!isAsyncIterable(data)) {
+      throw new TypeError(
+        "data argument must be an iterable or async-iterable."
+      );
+    }
+
+    const generator = data[Symbol.asyncIterator] || data[Symbol.iterator];
+    const iterator = generator.call(data);
+    let index = 0;
+    let item = await iterator.next();
+    while (!item.done) {
+      if (await predicate(await item.value, index, data)) {
+        write(item.value);
+      }
+      index++;
+      item = await iterator.next();
+    }
+    end();
+  });
 }

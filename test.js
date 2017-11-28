@@ -54,12 +54,7 @@ test("throw async during iteration if predicate throws", async t => {
   const filtered = filter(() => {
     throw new Error("test");
   }, lines);
-
-  const err = await (async () => {
-    for await (const _ of filtered) {
-      console.log(_);
-    }
-  })().catch(err => err);
+  const err = await filtered.next().catch(err => err);
 
   t.is(err.message, "test");
 });
@@ -71,11 +66,7 @@ test("throw async during iteration if predicate rejected", async t => {
     throw new Error("test");
   }, lines);
 
-  const err = await (async () => {
-    for await (const _ of filtered) {
-      console.log(_);
-    }
-  })().catch(err => err);
+  const err = await filtered.next().catch(err => err);
 
   t.is(err.message, "test");
 });
