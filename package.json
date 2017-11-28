@@ -1,6 +1,6 @@
 {
   "name": "ai-filter",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Filter over async iterables.",
   "repository": "parro-it/ai-filter",
   "author": "Andrea Parodi <andrea@parro.it>",
